@@ -151,6 +151,7 @@ JOIN clients c USING (client_id)
 JOIN payment_methods pm
     ON p.payment_method = pm.payment_method_id
 ```
+
 ## Natural Joins
 Join two tables basing on common columns(short but not recommended).Unexpected results.
 ``` sql
@@ -159,4 +160,99 @@ SELECT
     c.first_name
 FROM orders o
 NATURAL JOIN customers c
+```
+
+## Cross Joins
+Combine every record from first table and every record from second table.
+Explicit syntax
+``` sql
+SELECT 
+    c.first_name AS customer,
+    p.name AS product
+FROM customers c
+CROSS JOIN products p
+ORDER BY c.first_name
+```
+
+Implicit syntax(same results with explicit one)
+``` sql
+SELECT 
+    c.first_name AS customer,
+    p.name AS product
+FROM customers c, products p
+ORDER BY c.first_name
+```
+
+EXERCISE
+```sql
+-- implicit syntax
+SELECT 
+    sh.name AS shipper,
+    p.name AS product
+FROM shippers sh, products p
+ORDER BY sh.name;
+
+-- explicit syntax
+SELECT 
+    sh.name AS shipper,
+    p.name AS product
+FROM shippers sh
+CROSS JOIN products p
+ORDER BY sh.name;
+```
+
+## Unions
+Combine rows from multiple tables.
+``` sql
+SELECT 
+    order_id,
+    order_date,
+    'Active' AS status
+FROM orders
+WHERE order_date >= '2019-01-01'
+UNION
+SELECT 
+    order_id,
+    order_date,
+    'Archived' AS status
+FROM orders
+WHERE order_date < '2019-01-01'
+```
+
+The number of columns should be the same.
+First query determine the name of the column.
+``` sql
+SELECT first_name
+FROM customers
+UNION
+SELECT name
+FROM shippers
+```
+
+EXERCISE
+``` sql
+SELECT 
+    customer_id,
+    first_name,
+    points,
+    'Gold' AS type
+FROM customers c
+WHERE points >= 3000
+UNION
+SELECT 
+    customer_id,
+    first_name,
+    points,
+    'Silver' AS type
+FROM customers c
+WHERE points BETWEEN 2000 AND 3000
+UNION
+SELECT 
+    customer_id,
+    first_name,
+    points,
+    'Bronze' AS type
+FROM customers c
+WHERE points < 2000
+ORDER BY first_name
 ```
