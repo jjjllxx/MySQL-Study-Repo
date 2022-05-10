@@ -116,5 +116,60 @@ WHERE invoice_id = 3
 ```
 
 ## Updating Multiple Rows
+If MySQL workbench is in the safe update mode, only one record is allowed to be updated once.   
+Solution(Mac version): MySQLWorkbench -> Preferences -> SQL editor(bottom) -> Untick safe update
+Update all the invoices with client_id of 3 or 4.
 ``` sql
+UPDATE invoices
+SET 
+	payment_total = invoice_total * 0.5, 
+    payment_date = due_date
+WHERE client_id IN (3, 4)
 ```
+
+EXERCISE
+``` sql
+USE sql_store;
+
+UPDATE customers
+SET points = points + 50
+WHERE birth_date < '1990-01-01'
+```
+
+## Using Subqueries in Updates
+``` sql
+UPDATE invoices
+SET
+    payment_total = invoice_total * 0.5,
+    payment_date = due_date
+WHERE client_id = (SELECT client_id FROM clients WHERE name = 'Myworks')
+```
+
+``` sql
+UPDATE invoices
+SET
+	payment_total = invoice_total * 0.5,
+    payment_date = due_date
+WHERE client_id IN (SELECT client_id FROM clients WHERE state IN ('NY', 'CA'))
+```
+
+EXERCISE
+``` sql
+USE sql_store;
+
+UPDATE orders
+SET comments = 'Golden customer'
+WHERE customer_id IN (SELECT customer_id FROM customers WHERE points > 3000)
+```
+
+## Deleting Row
+``` sql
+DELETE FROM invoices
+WHERE invoice_id = (
+	SELECT *
+	FROM clients
+	WHERE name = 'Myworks'
+)
+```
+
+## Restoring the Databases
