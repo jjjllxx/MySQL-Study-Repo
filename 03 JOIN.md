@@ -1,8 +1,45 @@
 # Chapter 3 JOIN
 ## Inner Joins
+``` sql
+SELECT *
+FROM orders
+JOIN customers
+    ON orders.customer_id = customers.customer_id
+```
 
+For same column name in two tables, prefix should be added to indicates one table. Also use alias for a short expression.
+``` sql
+SELECT 
+	order_id,
+	o.customer_id,
+    first_name,
+    last_name
+FROM orders o
+JOIN customers c
+	ON o.customer_id = c.customer_id
+```
+
+EXERCISE
+``` sql
+SELECT
+    order_id,
+    oi.product_id,
+    quantity,
+    unit_price
+FROM order_items oi
+JOIN products p
+	ON oi.product_id = p.product_id
+```
 ## Join Across Databases
+Do not need to add prefix for the table from current database.
+``` sql
+USE sql_inventory;
 
+SELECT * 
+FROM sql_store.order_items oi
+JOIN products p
+	ON oi.product_id =p.product_id
+```
 ## Self Joins
 
 ## Join Multiple Tables
