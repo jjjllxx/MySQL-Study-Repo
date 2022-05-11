@@ -1,4 +1,5 @@
 # Chapter 3 JOIN
+
 ## Inner Joins
 ``` sql
 SELECT *
@@ -38,28 +39,68 @@ USE sql_inventory;
 SELECT * 
 FROM sql_store.order_items oi
 JOIN products p
-	ON oi.product_id =p.product_id
+     ON oi.product_id = p.product_id
 ```
+
 ## Self Joins
+Join one table with itself, using different alias. For each column, prefix must be added.
+``` sql
+USE sql_hr;
+
+SELECT 
+    e.employee_id,
+    e.first_name,
+    m.first_name AS manager
+FROM employees e
+JOIN employees m
+     ON e.reports_to = m.employee_id
+```
 
 ## Join Multiple Tables
+Join more than 2 tables.
+``` sql
+USE sql_store;
 
-## Compound Join Conditions
-```sql
+SELECT 
+    o.order_id,
+    o.order_date,
+    c.first_name,
+    c.last_name,
+    os.name AS status
+FROM orders o
+JOIN customers c
+     ON o.customer_id = c.customer_id
+JOIN order_statuses os
+     ON o.status = os.order_status_id
+```
+
+EXERCISE
+``` sql
 USE sql_invoicing;
 
 SELECT 
-    p.payment_id,
-    c.client_id,
-    p.invoice_id,
     p.date,
+    p.invoice_id,
     p.amount,
-    p.payment_method
+    c.name,
+    pm.name
 FROM payments p
 JOIN clients c
-    ON p.client_id = c.client_id
+     ON p.client_id = c.client_id
 JOIN payment_methods pm
-    ON p.payment_method = pm.payment_method_id
+     ON p.payment_method = pm.payment_method_id
+```
+
+## Compound Join Conditions
+Use more than one columns(multiple condition) to combine two tables.  
+Composite primary key: has two or more columns of primary key.
+
+```sql
+SELECT *
+FROM order_items oi
+JOIN order_item_notes oin
+    ON oi.order_id = oin.order_id
+    AND oi.product_id = oin.product_id
 ```
 
 ## Implicit Join Syntax
