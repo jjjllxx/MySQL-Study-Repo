@@ -1,4 +1,4 @@
-# Chapter 3 JOIN
+# Chapter 3 Retrieve Data(Multiple Table)
 
 ## Inner Joins
 ``` sql
