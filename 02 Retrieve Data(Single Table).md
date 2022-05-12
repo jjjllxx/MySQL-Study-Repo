@@ -42,3 +42,52 @@ FROM products
 ```
 
 ## The WHERE Clause
+Symbols: >, <, >=, <=, = ,!=/<>
+Two examples:
+``` sql
+SELECT *
+FROM Customers
+WHERE state = 'VA'
+```
+Date format: 4 digits for the year, 2 digits for the month, 2 digits for the day.
+``` sql
+SELECT *
+FROM Customers
+WHERE birth_date > '1990-01-01'
+```
+
+EXERCISE
+``` sql
+SELECT *
+FROM Orders
+WHERE order_date > '2019-01-01'
+```
+
+## The AND, OR and NOT operators
+Examples
+``` sql
+SELECT *
+FROM Customers
+WHERE birth_date > '1990-01-01' AND points > 1000
+```
+
+``` sql
+SELECT *
+FROM Customers
+WHERE birth_date > '1990-01-01' OR points > 1000
+```
+
+These logical operators can be combined to use. AND operator is evaluated first. USE () to overwrite.
+NOT: negate a condition
+``` sql
+SELECT *
+FROM Customers
+WHERE NOT (birth_date > '1990-01-01' OR points > 1000)
+```
+
+EXERCISE
+``` sql
+SELECT *
+FROM order_items
+WHERE order_id = 6 AND unit_price * quantity > 30
+```
