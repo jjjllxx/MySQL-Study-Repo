@@ -11,13 +11,13 @@ JOIN customers
 For same column name in two tables, prefix should be added to indicates one table. Also use alias for a short expression.
 ``` sql
 SELECT 
-	order_id,
-	o.customer_id,
+    order_id,
+    o.customer_id,
     first_name,
     last_name
 FROM orders o
 JOIN customers c
-	ON o.customer_id = c.customer_id
+    ON o.customer_id = c.customer_id
 ```
 
 EXERCISE
@@ -53,7 +53,7 @@ SELECT
     m.first_name AS manager
 FROM employees e
 JOIN employees m
-     ON e.reports_to = m.employee_id
+    ON e.reports_to = m.employee_id
 ```
 
 ## Join Multiple Tables
@@ -69,9 +69,9 @@ SELECT
     os.name AS status
 FROM orders o
 JOIN customers c
-     ON o.customer_id = c.customer_id
+    ON o.customer_id = c.customer_id
 JOIN order_statuses os
-     ON o.status = os.order_status_id
+    ON o.status = os.order_status_id
 ```
 
 EXERCISE
@@ -86,9 +86,9 @@ SELECT
     pm.name
 FROM payments p
 JOIN clients c
-     ON p.client_id = c.client_id
+    ON p.client_id = c.client_id
 JOIN payment_methods pm
-     ON p.payment_method = pm.payment_method_id
+    ON p.payment_method = pm.payment_method_id
 ```
 
 ## Compound Join Conditions
@@ -187,7 +187,7 @@ SELECT
     m.first_name AS manager
 FROM employees e
 LEFT JOIN employees m
-     ON e.reports_to = m.employee_id
+    ON e.reports_to = m.employee_id
 ```
 
 ## The USING Clause
@@ -211,7 +211,7 @@ SELECT *
 FROM order_items oi
 JOIN order_item_notes oin
     -- ON oi.order_id = oin.order_id AND
-        -- oi.product_id = oin.product_id
+    -- oi.product_id = oin.product_id
     USING (order_id, product_id)
 ```
 
