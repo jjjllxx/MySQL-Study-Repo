@@ -26,7 +26,7 @@ SELECT
     'First half of 2019' AS date_range,
     SUM(invoice_total) AS total_sales,
     SUM(payment_total) AS total_payments,
-	SUM(invoice_total - payment_total) AS what_we_expect
+    SUM(invoice_total - payment_total) AS what_we_expect
 FROM invoices
 WHERE invoice_date BETWEEN '2019-01-01' AND '2019-06-30'
 UNION 
@@ -42,7 +42,7 @@ SELECT
     'Total' AS date_range,
     SUM(invoice_total) AS total_sales,
     SUM(payment_total) AS total_payments,
-	SUM(invoice_total - payment_total) AS what_we_expect
+    SUM(invoice_total - payment_total) AS what_we_expect
 FROM invoices
 WHERE invoice_date BETWEEN '2019-01-01' AND '2019-12-31'
 ```
@@ -55,7 +55,7 @@ Single column grouping example:
 ``` sql
 SELECT
     client_id,
-	SUM(invoice_total) AS total_sales
+    SUM(invoice_total) AS total_sales
 FROM invoices
 WHERE invoice_date >= '2019-07-01'
 GROUP BY client_id
@@ -65,9 +65,9 @@ ORDER BY total_sales DESC
 Multiple columns grouping example;
 ``` sql
 SELECT
-	state,
+    state,
     city,
-	SUM(invoice_total) AS total_sales
+    SUM(invoice_total) AS total_sales
 FROM invoices i
 JOIN clients USING (client_id)
 GROUP BY state, city
@@ -76,9 +76,9 @@ GROUP BY state, city
 EXERCISE
 ``` sql
 SELECT
-	date,
+    date,
     pm.name AS payment_method,
-	SUM(amount) AS total_payments
+    SUM(amount) AS total_payments
 FROM payments p
 JOIN payment_methods pm
 ON p.payment_method = pm.payment_method_id
@@ -92,8 +92,73 @@ HAVING clause filters data after grouping, WHERE clause filters data before grou
 ``` sql
 SELECT
     client_id,
-	SUM(invoice_total) AS total_sales
+    SUM(invoice_total) AS total_sales
 FROM invoices
 GROUP BY client_id
 HAVING total_sales > 500
 ```
+
+Conditions can be one or more, but the columns must be in SELECT clause(different from WHERE clause).
+``` sql
+SELECT
+    client_id,
+    SUM(invoice_total) AS total_sales,
+    COUNT(*) AS number_of_invoice
+FROM invoices
+GROUP BY client_id
+HAVING total_sales > 500 AND number_of_invoice > 5
+```
+
+EXERCISE
+``` sql
+USE sql_store;
+SELECT 
+    c.customer_id,
+    c.first_name,
+    c.last_name,
+    SUM(oi.quantity * oi.unit_price) AS total_sales
+FROM customers c
+JOIN orders o USING (customer_id)
+JOIN order_items oi USING (order_id)
+WHERE state = 'VA'
+GROUP BY c.customer_id, c.first_name, c.last_name
+HAVING total_sales > 100
+```
+
+## The ROLLUP Operator
+WITH ROLLUP: One extra rows to summarize the entire results set.
+For one column:
+``` sql
+USE sql_invoicing;
+
+SELECT
+    client_id,
+    SUM(invoice_total) AS total_sales
+FROM invoices i
+GROUP BY client_id WITH ROLLUP
+```
+
+For multiple columns:
+``` sql
+USE sql_invoicing;
+SELECT
+    state,
+    city,
+    SUM(invoice_total) AS total_sales
+FROM invoices i
+JOIN clients c USING (client_id)
+GROUP BY state,city WITH ROLLUP
+```
+
+EXERCISE(In ROLLUP clause, use actual name of columns instead of alias)
+``` sql
+USE sql_invoicing;
+SELECT
+    pm.name AS payment_method,
+    SUM(amount) AS total
+FROM payments p
+JOIN payment_methods pm 
+    ON p.payment_method = pm.payment_method_id
+GROUP BY pm.name WITH ROLLUP
+```
+
