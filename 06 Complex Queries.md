@@ -37,6 +37,54 @@ WHERE product_id NOT IN (
     FROM order_items
 )
 ```
-
+EXERCISE
 ``` sql
+USE sql_invoicing;
+
+SELECT *
+FROM clients
+WHERE client_id NOT IN (
+    SELECT DISTINCT client_id
+    FROM invoices
+)
+```
+
+## Subqueries vs Joins
+This example shares same result with last EXERCISE.  
+Sometimes Subqueries and Joins have same result. Take care of readability.
+``` sql
+USE sql_invoicing;
+
+SELECT *
+FROM clients
+LEFT JOIN invoices USING (client_id)
+WHERE invoice_id IS NULL
+```
+
+EXERCISE(two methods)
+```sql
+USE sql_store;
+
+-- Subqueries
+SELECT 
+	customer_id,
+    first_name,
+    last_name
+FROM customers
+WHERE customer_id IN (
+	SELECT customer_id
+    FROM orders o
+    JOIN order_items oi USING (order_id)
+    WHERE oi.product_id = 3
+);
+
+-- Joins
+SELECT DISTINCT
+	customer_id,
+    first_name,
+    last_name
+FROM customers c
+JOIN orders o USING (customer_id)
+JOIN order_items oi USING (order_id)
+WHERE oi.product_id = 3
 ```
