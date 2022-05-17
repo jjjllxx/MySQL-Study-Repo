@@ -67,7 +67,7 @@ USE sql_store;
 
 -- Subqueries
 SELECT 
-	customer_id,
+    customer_id,
     first_name,
     last_name
 FROM customers
@@ -80,11 +80,105 @@ WHERE customer_id IN (
 
 -- Joins
 SELECT DISTINCT
-	customer_id,
+    customer_id,
     first_name,
     last_name
 FROM customers c
 JOIN orders o USING (customer_id)
 JOIN order_items oi USING (order_id)
 WHERE oi.product_id = 3
+```
+
+## The ALL Keyword
+``` sql
+USE sql_invoicing;
+
+SELECT *
+FROM invoices 
+WHERE invoice_total > (
+    SELECT MAX(invoice_total)
+    FROM invoices
+    WHERE client_id = 3
+)
+```
+
+ALL keyword
+``` sql
+USE sql_invoicing;
+
+SELECT *
+FROM invoices 
+WHERE invoice_total > ALL (
+    SELECT invoice_total
+    FROM invoices
+    WHERE client_id = 3
+)
+```
+
+## The ANY Keyword
+``` sql
+USE sql_invoicing;
+
+SELECT *
+FROM clients
+WHERE client_id IN (
+    SELECT client_id
+    FROM invoices 
+    GROUP BY client_id
+    HAVING COUNT(*) >= 2
+)
+```
+
+ANY Keyword
+``` sql
+USE sql_invoicing;
+
+SELECT *
+FROM clients
+WHERE client_id = ANY (
+    SELECT client_id
+    FROM invoices 
+    GROUP BY client_id
+    HAVING COUNT(*) >= 2
+)
+```
+
+## Correlated Subqueries
+``` sql
+USE sql_hr;
+
+SELECT *
+FROM employees e
+WHERE salary > (
+    SELECT AVG(salary)
+    FROM employees
+    WHERE office_id = e.office_id
+)
+```
+
+EXERCISE
+``` sql
+USE sql_invoicing;
+
+SELECT *
+FROM invoices i
+JOIN clients c USING (client_id)
+WHERE invoice_total > (
+    SELECT AVG(invoice_total)
+    FROM invoices
+    WHERE client_id = c.client_id
+)
+```
+
+## The EXISTS Operation
+``` sql
+USE sql_invoicing;
+
+SELECT *
+FROM clients c
+WHERE EXISTS (
+    SELECT client_id
+    FROM invoices
+    WHERE client_id = c.client_id
+)
 ```
