@@ -72,8 +72,99 @@ SELECT REPLACE('kindergarten', 'garten', 'garden')
 
 CONCAT: concat two strings
 ``` sql
+USE sql_store;
 
+SELECT CONCAT(first_name, ' ', last_name) AS full_name
+FROM customers
 ```
 Search *mysql string function* for complete list
 
 ## Date Functions
+NOW(): current date and time. CURDATE(): only current date. CURTIME(): only current time.
+``` sql
+SELECT NOW(), CURDATE(), CURTIME()
+```
+
+YEAR(), MONTH(), DAY(), HOUR(), MINUTE(), SECOND(): combine with a time to get year, month, hour, minute or second of it. Only returns integer.
+``` sql
+SELECT YEAR(NOW())
+```
+
+DAYNAME(): to get the day of the week. MONTHNAME(): to get the name of the month.
+``` sql
+SELECT DAYNAME(NOW())
+```
+
+EXTRACT()
+``` sql
+SELECT EXTRACT(YEAR FROM NOW())
+```
+
+EXERCISE
+``` sql
+SELECT *
+FROM orders
+WHERE YEAR(order_date) = YEAR(NOW())
+```
+
+## Formatting Dates and Times
+DATE_FORMAT(): m d y can be either upper case or lower case.
+``` sql
+SELECT DATE_FORMAT(NOW(), '%M %D %Y')
+```
+
+TIME_FORMAT() 
+``` sql
+SELECT TIME_FORMAT(NOW(), '%H:%i %p')
+```
+Search *mysql date format function* for more information
+
+## Calculating Dates and Times
+DATE_ADD(): add time interval, number can be negative value(like DATE_SUB()).  
+DATE_SUB(): subtract time interval.
+``` sql
+SELECT DATE_ADD(NOW(), INTERVAL 1 DAY)
+```
+
+DATEDIFF(): calculate the difference between two dates
+``` sql
+SELECT DATEDIFF('2019-01-05 09:00', '2019-01-01 11:00')
+```
+
+TIME_TO_SEC(): transfer time to seconds
+``` sql
+SELECT TIME_TO_SEC('9:00') - TIME_TO_SEC('09:02')
+```
+
+## The IFNULL and COALESCE Functions
+IFNULL: substitute null value with something else
+``` sql
+USE sql_store;
+
+SELECT 
+    order_id,
+    IFNULL(shipper_id, 'Not assigned') AS shipper
+FROM orders 
+```
+
+COALESCE: supply a list of value, return the first not null value.  
+``` sql
+USE sql_store;
+
+SELECT 
+    order_id,
+    COALESCE(shipper_id, comments, 'Not assigned') AS shipper
+FROM orders 
+```
+
+EXERCISE
+``` sql
+USE sql_store;
+
+SELECT 
+    CONCAT(first_name, ' ', last_name) AS customer,
+	IFNULL(phone, 'unknow') AS phone
+FROM customers
+```
+
+## 
