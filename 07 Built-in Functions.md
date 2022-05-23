@@ -163,8 +163,64 @@ USE sql_store;
 
 SELECT 
     CONCAT(first_name, ' ', last_name) AS customer,
-	IFNULL(phone, 'unknow') AS phone
+    IFNULL(phone, 'unknow') AS phone
 FROM customers
 ```
 
-## 
+## The IF Function
+IF(expression, first, second): if the expression is true, return the first, otherwise return the second.
+``` sql
+USE sql_store;
+
+SELECT 
+    order_id,
+    order_date,
+    IF(YEAR(order_date) = YEAR(NOW()), 'Active', 'Archived') AS category
+FROM orders
+```
+
+EXERCISE
+``` sql
+USE sql_store;
+
+SELECT
+    product_id,
+    name,
+    COUNT(*) AS orders,
+    IF(COUNT(*) > 1, 'Many times', 'Once') AS frequency
+FROM products
+JOIN order_items USING (product_id)
+GROUP BY product_id
+```
+
+## The CASE operator
+CASE: for multiple situations
+``` sql
+USE sql_store;
+
+SELECT
+    order_id,
+    CASE
+	WHEN YEAR(order_date) = YEAR(NOW()) - 3 THEN 'Active'
+        WHEN YEAR(order_date) = YEAR(NOW()) - 4 THEN 'Last Year'
+        WHEN YEAR(order_date) < YEAR(NOW()) - 4 THEN 'Archived'
+        ELSE 'Future'
+    END AS category
+FROM orders
+```
+
+EXERCISE
+``` sql
+USE sql_store;
+
+SELECT
+    CONCAT(first_name, ' ', last_name) AS customer,
+    points,
+    CASE
+	WHEN points > 3000 THEN 'Gold'
+        WHEN points >= 2000 THEN 'Silver'
+        ELSE 'Bronze'
+    END AS category
+FROM customers
+ORDER BY points DESC
+```
