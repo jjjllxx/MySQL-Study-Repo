@@ -171,6 +171,7 @@ WHERE invoice_total > (
 ```
 
 ## The EXISTS Operation
+EXISTS operator is more efficient than IN operator if the result set is very large.
 ``` sql
 USE sql_invoicing;
 
@@ -181,4 +182,80 @@ WHERE EXISTS (
     FROM invoices
     WHERE client_id = c.client_id
 )
+```
+
+EXERCISE
+``` sql 
+USE sql_store;
+
+SELECT *
+FROM products p
+WHERE NOT EXISTS (
+    SELECT product_id
+    FROM order_items
+    WHERE product_id = p.product_id
+)
+```
+
+## Subqueries in the SELECT Clause
+``` sql
+USE sql_invoicing;
+
+SELECT
+    invoice_id,
+    invoice_total,
+    (SELECT AVG(invoice_total)
+	FROM invoices) AS invoice_average,
+    invoice_total - (SELECT invoice_average) AS difference
+FROM invoices
+```
+
+EXERCISE
+My Method
+``` sql
+USE sql_invoicing;
+
+SELECT
+    c.client_id,
+    name,
+    SUM(invoice_total) AS total_sales,
+    (SELECT AVG(invoice_total)
+        FROM invoices) AS average,
+    SUM(invoice_total) - (SELECT average) AS difference
+FROM clients c
+LEFT JOIN invoices USING (client_id)
+GROUP BY c.client_id
+```
+
+Code in the video
+``` sql
+USE sql_invoicing;
+
+SELECT
+    c.client_id,
+    name,
+    (SELECT SUM(invoice_total)
+	FROM invoices
+        WHERE client_id = c.client_id) AS total_sales,
+    (SELECT AVG(invoice_total) FROM invoices) AS average,
+    (SELECT total_sales - average) AS difference
+FROM clients c
+```
+
+## Subqueries in the FROM Clause
+``` sql
+USE sql_invoicing;
+SELECT *
+FROM (
+    SELECT
+	c.client_id,
+	name,
+	(SELECT SUM(invoice_total)
+	    FROM invoices
+	    WHERE client_id = c.client_id) AS total_sales,
+	(SELECT AVG(invoice_total) FROM invoices) AS average,
+	(SELECT total_sales - average) AS difference
+	FROM clients c
+) AS sales_summary
+WHERE total_sales IS NOT NULL
 ```
