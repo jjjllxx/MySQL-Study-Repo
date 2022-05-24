@@ -274,3 +274,71 @@ select @invoices_count, @invoices_total;
 ```
 
 ## Variables
+User or session variables: defined with SET statement and prefix with @.
+``` sql
+set @invoices_count = 0;
+```
+
+Local variables: defined inside stored procedures or functions. Not stored in memory for the entire user session.  
+risk_factor is a local variable in the following example.
+``` sql
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_risk_factor`()
+BEGIN
+    DECLARE risk_factor DECIMAL(9, 2) DEFAULT 0;
+    DECLARE invoices_total DECIMAL(9, 2);
+    DECLARE invoices_count INT;
+    
+    SELECT COUNT(*), SUM(invoice_total)
+    INTO invoices_count, invoices_total
+    FROM invoices;
+    
+    SET risk_factor = invoices_total / invoices_count * 5;
+    
+    SELECT risk_factor;
+END
+```
+
+## Functions
+Like built-in functions, this part is about creating own functions. Functions are like procedures, but only return a single value.
+Right click on Functions to create a new function.
+Set the attribute of function(every MySQL function should have at least one(can be more than one) attribute):
+1. DETERMINSTIC: If given same set of values, always return same value.
+2. READS SQL DATA: Function has SELECT statement to read some data.
+3. MODIFIES SQL DATA: Function has INSERT, UPDATE or DELETE statement.
+``` sql
+CREATE DEFINER=`root`@`localhost` FUNCTION `get_risk_factor_for_client`(
+    client_id INT
+) 
+RETURNS int
+READS SQL DATA
+BEGIN
+    DECLARE risk_factor DECIMAL(9, 2) DEFAULT 0;
+    DECLARE invoices_total DECIMAL(9, 2);
+    DECLARE invoices_count INT;
+    
+    SELECT COUNT(*), SUM(invoice_total)
+    INTO invoices_count, invoices_total
+    FROM invoices i
+    WHERE i.client_id = client_id;
+    
+    SET risk_factor = invoices_total / invoices_count * 5;
+RETURN IFNULL(risk_factor, 0);
+END
+```
+
+Use functions(just like the built-in)
+``` sql
+SELECT 
+    client_id,
+    name,
+    get_risk_factor_for_client(client_id) AS risk_factor
+FROM clients
+```
+
+Drop functions
+``` sql
+DROP FUNCTION IF EXISTS get_risk_factor_for_client
+```
+
+## Other Conventions
+Follow company conventions or teammates.
