@@ -21,7 +21,7 @@ USE sql_invoicing;
 
 CREATE VIEW clients_balance AS
 SELECT
-	c.client_id,
+    c.client_id,
     c.name,
     SUM(invoice_total - payment_total) AS balance
 FROM clients c
@@ -41,7 +41,7 @@ USE sql_invoicing;
 
 CREATE OR REPLACE VIEW clients_balance AS
 SELECT
-	c.client_id,
+    c.client_id,
     c.name,
     SUM(invoice_total - payment_total) AS balance
 FROM clients c
@@ -57,7 +57,7 @@ USE sql_invoicing;
 
 CREATE OR REPLACE VIEW invoices_with_balance AS
 SELECT
-	invoice_id,
+    invoice_id,
     number,
     client_id,
     invoice_total,
@@ -82,3 +82,29 @@ UPDATE invoices_with_balance
 SET due_date = DATE_ADD(due_date, INTERVAL 2 DAY)
 WHERE invoice_id = 2
 ```
+
+## The WITH OPTION CHECK Clause
+WITH CHECK OPTION: prevent UPDATE or DELETE statement from excluding rows from the view(get an error).
+``` sql
+USE sql_invoicing;
+
+CREATE OR REPLACE VIEW invoices_with_balance AS
+SELECT
+    invoice_id,
+    number,
+    client_id,
+    invoice_total,
+    payment_total,
+    invoice_total - payment_total AS balance,
+    invoice_date,
+    due_date,
+    payment_date
+FROM invoices
+WHERE (invoice_total - payment_total) > 0
+WITH CHECK OPTION
+```
+
+## Other Benefits of Views
+1. Simplify queries
+2. Reduce the impact of changes
+3. Restrict access to the data
