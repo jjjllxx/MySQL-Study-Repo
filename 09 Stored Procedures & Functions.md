@@ -162,14 +162,14 @@ DROP PROCEDURE IF EXISTS get_payments;
 DELIMITER $$
 CREATE PROCEDURE get_payments
 (
-	client_id INT,
+    client_id INT,
     payment_method_id TINYINT
 )
 BEGIN
-	SELECT *
+    SELECT *
     FROM payments p
     WHERE 
-		p.client_id = IFNULL(client_id, p.client_id) AND 
+	p.client_id = IFNULL(client_id, p.client_id) AND 
         p.payment_method = IFNULL(payment_method_id, p.payment_method);
 END $$
 
@@ -182,5 +182,95 @@ CALL get_payments(NULL, NULL)
 ```
 
 ## Parameter Validation
+Use procedures to insert, update and delete data.
 ``` sql
+CREATE PROCEDURE make_payment
+(
+    invoice_id INT,
+    payment_amount DECIMAL(9, 2),
+    -- 9 represents the total number of digits, 2 represents number of digits after decimal point
+    payment_date DATE
+)
+BEGIN
+    UPDATE invoices i
+    SET
+	i.payment_total = payment_amount,
+        i.payment_date = payment_date
+    WHERE i.invoice_id = invoice_id;
+END
 ```
+
+Click on the flash button to call the procedure
+``` sql
+call sql_invoicing.make_payment(2, 100, '2019-01-01');
+```
+
+Validate parameter: for example, payment_total should not be negative.  
+SIGNAL SQLSTATE: throw an error(search *sqlstate errors* for more information).  
+``` sql
+CREATE DEFINER=`root`@`localhost` PROCEDURE `make_payment`(
+	invoice_id INT,
+    payment_amount DECIMAL(9, 2),
+    -- 9 represents the total number of digits, 2 represents number of digits after decimal point
+    payment_date DATE
+)
+BEGIN
+    IF payment_amount <= 0 THEN
+        SIGNAL SQLSTATE '22003'
+	SET MESSAGE_TEXT = 'Invalid payment amount';
+    END IF;
+    
+    UPDATE invoices i
+    SET
+	i.payment_total = payment_amount,
+        i.payment_date = payment_date
+    WHERE i.invoice_id = invoice_id;
+END
+```
+
+## Output Parameters
+``` sql
+CREATE PROCEDURE get_unpaid_invoices_for_clients
+(
+    client_id INT
+)
+BEGIN
+    SELECT 
+	COUNT(*),
+        SUM(invoice_total)
+    FROM invoices i
+    WHERE i.client_id = client_id
+	AND payment_total = 0;
+END
+```
+
+Generated code
+``` sql
+call sql_invoicing.get_unpaid_invoices_for_clients(3)
+```
+OUT: mark parameters as output parameters.   
+INTO: read values and copy to output parameters.  
+``` sql
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_unpaid_invoices_for_clients`(
+    client_id INT,
+    OUT invoices_count INT,
+    OUT invoices_total DECIMAL(9, 2)
+)
+BEGIN
+    SELECT COUNT(*), SUM(invoice_total)
+    INTO invoices_count, invoices_total
+    FROM invoices i
+    WHERE i.client_id = client_id
+	AND payment_total = 0;
+END
+```
+
+Same output, but generated code:
+``` sql
+set @invoices_count = 0;
+set @invoices_total = 0;
+call sql_invoicing.get_unpaid_invoices_for_clients(3, @invoices_count, @invoices_total);
+select @invoices_count, @invoices_total;
+```
+
+## Variables
