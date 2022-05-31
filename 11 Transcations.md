@@ -50,9 +50,120 @@ If a transaction try to modify a row or multiple rows, MySQL put a lock on these
 
 ## Transaction Isolation Levels
 Solutions:
-|  | Lost Updates | Dirty Reads | Non-repeating Reads | Phantom Reads |
-|------------|------------|------------|---------------|---------|
-| READ UNCOMMITTED |     |      |    |   |
-| READ COMMITTED |     | &#10004; |   |  |
-| REPEATABLE READ | &#10004;  | &#10004; | &#10004; ||
-| SERIALIZABLE | &#10004; | &#10004; | &#10004; | &#10004; |
+|| Lost Updates | Dirty Reads | Non-repeating Reads | Phantom Reads |
+|------------------|----------|----------|----------|----------|
+| READ UNCOMMITTED |          |          |          |          |
+| READ COMMITTED   |          | &#10004; |          |          |
+| REPEATABLE READ  | &#10004; | &#10004; | &#10004; |          |
+| SERIALIZABLE     | &#10004; | &#10004; | &#10004; | &#10004; |
+
+SERIALIZABLE: Need extra resources, including memory and CPU to manage transactions that have to wait.  
+The higher the isolation level, the more performance and scalability problem will experience(more locks involved to isolate transactions).
+REPEATABLE READ: Default transaction isolation level in MySQL.
+
+View the current isolation level:
+``` sql
+SHOW VARIABLES LIKE 'transaction_isolation';
+```
+
+Set new isolation level:
+``` sql
+SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+SET GLOBAL TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+```
+
+## READ UNCOMMITTED Isolation Level
+``` sql
+USE sql_store;
+
+SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+SELECT points
+FROM customers
+WHERE customer_id = 1;
+```
+
+``` sql
+USE sql_store;
+
+START TRANSACTION;
+UPDATE customers
+SET points = 20
+WHERE customer_id = 1;
+COMMIT;
+```
+READ UNCOMMITTED: lowest isolation level, may meet all concurrency problems.
+
+## READ COMMITTED Isolation Level
+``` sql
+USE sql_store;
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+START TRANSACTION;
+SELECT points FROM customers WHERE customer_id = 1;
+SELECT points FROM customers WHERE customer_id = 1;
+COMMIT;
+```
+
+``` sql
+USE sql_store;
+
+START TRANSACTION;
+UPDATE customers
+SET points = 20
+WHERE customer_id = 1;
+COMMIT;
+```
+
+## REPEATABLE READ Isolation Level
+Repeatable and consistent
+``` sql
+USE sql_store;
+
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+START TRANSACTION;
+SELECT * FROM customers WHERE state = 'VA';
+COMMIT;
+```
+
+``` sql
+USE sql_store;
+
+START TRANSACTION;
+UPDATE customers
+SET state = 'VA'
+WHERE customer_id = 1;
+COMMIT;
+```
+
+## SERIALIZABLE Isolation Level
+SERIALIZABLE Isolation Level: Transactions are executed in sequence. It is like a single-user system, one user executing different commands against the database. These commands are executed sequentially.
+``` sql
+USE sql_store;
+SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+START TRANSACTION;
+SELECT *
+FROM customers
+WHERE state = 'VA';
+COMMIT;
+```
+
+``` sql
+USE sql_store;
+
+START TRANSACTION;
+UPDATE customers
+SET state = 'VA'
+WHERE customer_id = 3;
+COMMIT;
+```
+
+## Deadlocks
+Deadlocks: happen when different transactions cannot complete because each transaction holds a lock that other needs. So both transactions keeps waiting for each other and never release their lock.
+``` sql
+USE sql_store;
+START TRANSACTION;
+UPDATE customers SET state = 'VA' WHERE customer_id = 1;
+UPDATE orders SET status = 1 WHERE order_id = 1;
+COMMIT;
+```
+Error 1213: Deadlock found when ...
