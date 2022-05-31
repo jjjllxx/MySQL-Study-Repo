@@ -30,3 +30,29 @@ SHOW VARIABLES LIKE 'autocommit';
 ```
 
 ## Concurrency and Locking
+Concurrency: Two or more users try to access the same data at the same time.
+``` sql
+USE sql_store;
+
+START TRANSACTION;
+UPDATE customers
+SET points = points + 10
+WHERE customer_id = 1;
+COMMIT;
+```
+If a transaction try to modify a row or multiple rows, MySQL put a lock on these rows. These locks prevent other transactions from modifying these rows until the first transaction is done(committed or rollback).
+
+## Concurrency Problems
+1. Lost Updates: Two transactions try to update the same data and do not use locks. The transaction committed later will overwrite the changes made by the previous transaction.
+2. Dirty Reads: A transaction reads the data that has not been committed yet. 
+3. Non-repeating Reads(Inconsistent Reads): Read a data twice, but get different results.
+4. Phantom Reads: Data suddenly appears, missed in query. Because it is updated, removed or deleted after the execution of query.
+
+## Transaction Isolation Levels
+Solutions:
+|  | Lost Updates | Dirty Reads | Non-repeating Reads | Phantom Reads |
+|------------|------------|------------|---------------|---------|
+| READ UNCOMMITTED |     |      |    |   |
+| READ COMMITTED |     | &#10004; |   |  |
+| REPEATABLE READ | &#10004;  | &#10004; | &#10004; ||
+| SERIALIZABLE | &#10004; | &#10004; | &#10004; | &#10004; |
