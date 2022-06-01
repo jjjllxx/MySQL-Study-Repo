@@ -25,3 +25,47 @@ Asian: 3
 MySQL leaves 30 bytes for CHAR(10).
 
 ## Integer Types
+| Type | Storage(Bytes) | Value Range | 
+|---------|----------|----------|
+| TINYINT            | 1b | [-128, 127] |
+| UNSIGNED TINYINT   | 1b | [0, 255]    |
+| SMALLINT           | 2b | [-32K, 32K] |
+| MEDIUMINT          | 3b | [-8M, 8M]   |
+| INT                | 4b | [-2B, 2B]   | 
+| BIDINT             | 8b | [-9Z, 9Z]   |
+
+Search *mysql integer types* for more information.  
+If trying to store a value out of range, MySQL will throw out an error: value is out of range.  
+ZEROFILL: Use zeros to pad the value, so numbers have same number of digits. INT(4) => 0001.  
+Use the smallest data type that suits your needs. Database will be smaller in size, queries will be executed faster.  
+
+## Fixed-point and Floating-point Types
+RATIONALS
+1. DECIMAL(p, s) DECIMAL(9, 2) => 1234567.89   Alias: DEC, NUMERIC, FIXED
+2. FLOAT 4b
+3. DOUBLE 8b. This two store approximation instead of exact value.
+
+## Boolean Types
+BOOL / BOOLEAN: 1/0 can replace TRUE/FALSE.
+``` sql
+UPDATE posts
+SET is_published = TRUE  # or FALSE
+```
+
+## Enum and Set Types
+ENUM('small', 'medium', 'large')
+Add an ENUM column
+``` sql
+ALTER TABLE `sql_store`.`products` 
+ADD COLUMN `size` ENUM('small', 'medium', 'lagre') NULL AFTER `unit_price`;
+```
+
+Change an ENUM value
+``` sql
+UPDATE `sql_store`.`products` SET `size` = 'small' WHERE (`product_id` = '1');
+```
+
+SET(...)
+
+## Date and Time Types
+
