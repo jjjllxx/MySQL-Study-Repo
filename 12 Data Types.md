@@ -68,4 +68,114 @@ UPDATE `sql_store`.`products` SET `size` = 'small' WHERE (`product_id` = '1');
 SET(...)
 
 ## Date and Time Types
+DATE/TIME
+| Type | Remark |
+|---------|----------|
+| DATE   | A date without time component |
+| TIME   | A time value|
+| DATETIME  | 8b |
+| TIMESTAMP | 4b (up to 2038) 'year 2038 problem'|
+| YEAR      | A 4-digits year | 
 
+## Blob Types
+| Type | Storage(Bytes) |
+|---------|----------|
+| TINYBLOB   | 255b |
+| BLOB       | 65KB |
+| MEDIUMBLOB | 16MB |
+| LONGBLOB   | 4GB  |
+
+Problems with Storing Files in a Database
+1. Increased database size
+2. Slower backups
+3. Performance problems
+4. More code to read/write images
+
+## JSON Types
+JSON: Lightweight format for storing and transferring data over the internet. {'key': value}
+Build a column with JSON
+``` sql
+ALTER TABLE `sql_store`.`products` 
+ADD COLUMN `properties` JSON NULL AFTER `size`;
+```
+
+Two ways to set JSON value
+``` sql
+USE sql_store;
+UPDATE products
+SET properties = '
+{
+    "dimensions" : [1, 2, 3],
+    "weight" : 10,
+    "manufacturer" : { "name": "sony" }
+}
+'
+WHERE product_id = 1;
+```
+
+``` sql
+USE sql_store;
+UPDATE products
+SET properties = JSON_OBJECT(
+    'weight', 10,
+    'dimensions', JSON_ARRAY(1, 2, 3),
+    'manufacturer', JSON_OBJECT('name', 'sony')
+)
+WHERE product_id = 1;
+```
+
+Obtain JSON value
+``` sql
+SELECT product_id, JSON_EXTRACT(properties, '$.weight') AS weight
+FROM products
+WHERE product_id = 1;
+```
+
+``` sql
+SELECT product_id, properties -> '$.weight' AS weight
+FROM products
+WHERE product_id = 1;
+```
+
+Get a value of certain index in a JSON array(index starts with 0)
+``` sql
+SELECT product_id, properties -> '$.dimensions[1]'
+FROM products
+WHERE product_id = 1;
+```
+
+Obtain JSON in JSON(two greater-than sign to get rid of quotes of strings)
+``` sql
+SELECT product_id, properties ->> '$.manufacturer.name'
+FROM products
+WHERE product_id = 1;
+```
+
+``` sql
+SELECT product_id, properties ->> '$.manufacturer.name'
+FROM products
+WHERE properties ->> '$.manufacturer.name' = 'sony';
+```
+
+JSON_SET: update some of JSON values or add new ones
+``` sql
+USE sql_store;
+UPDATE products
+SET properties = JSON_SET(
+    properties,
+    '$.weight', 20,
+    '$.age', 10
+)
+WHERE product_id = 1;
+```
+
+JSON_REMOVE: delete one or more properties
+``` sql
+USE sql_store;
+UPDATE products
+SET properties = JSON_REMOVE(
+    properties,
+    '$.age'
+)
+WHERE product_id = 1;
+```
