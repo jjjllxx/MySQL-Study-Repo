@@ -41,3 +41,34 @@ student_id and course_id are the primary key for student table and course table 
 <img width="560" alt="image" src="https://user-images.githubusercontent.com/60777462/171616922-e74da4d3-1705-44b5-8582-2e251dd60c0d.png">
 
 ## Foreign Keys
+When ever a relationship is added between two tables, one end of the relationship is called parent/primary key table, another is called child/foreign key table.  
+Use the 1:n relationship to link the enrollment table with student table and course table respectively.   
+Use composite primary key for the enrollment table.
+
+<img width="557" alt="image" src="https://user-images.githubusercontent.com/60777462/171659967-c6f1dc38-3ea6-41e2-bf1d-165b3963c762.png">
+
+## Foreign Key Constraints
+Set constraints on foreign keys to protect data from be destroyed.  
+Some On update/ On delete options for foreign key(when primary key of a table changes)
+1. CASCADE: MySQL will automatically update/delete according to primary key.
+2. RESTRICT: reject update.
+3. SET NULL
+4. NO ACTION: Same as RESTRICT
+
+## Normalization
+Normalization: review design, follow predefined rules and prevent data duplication.  
+
+## First Normal Form (1NF)
+1NF: Each cell should has a single value and we cannot have repeated columns.  
+In the example, tags in courses table does not follow the 1NF, a new table tags should be added.  
+
+<img width="555" alt="image" src="https://user-images.githubusercontent.com/60777462/171666979-4fc05e7b-bb78-423e-9e39-ddaa8bf06fcd.png">
+
+## Link Tables
+In relational databases, there is no many-to-many link, so use link table and two one-to-many links to represent many-to-many relationship.
+
+<img width="692" alt="image" src="https://user-images.githubusercontent.com/60777462/171667205-7718a257-c970-40b0-98d6-5a69720e03e3.png">
+
+## Second Normal Form (2NF)
+
+
