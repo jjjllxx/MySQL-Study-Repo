@@ -29,4 +29,15 @@ Realationships between entities:
 <img width="606" alt="image" src="https://user-images.githubusercontent.com/60777462/171612337-ff1db15d-5441-46e4-a2dd-2ffe3ee1d709.png">
 
 ## Physical Models
+In MySQL Workbench, File -> New Model -> change Physical Schemas name to School -> Add diagram -> Add a new table -> Add columns
+EER(enhence entity relationship) diagrams: can create entity reationship diagrams.
 
+<img width="545" alt="image" src="https://user-images.githubusercontent.com/60777462/171615992-798bb240-cfdb-4908-9a0a-c78a5d212c60.png">
+
+## Primary Keys
+Primary Key: Identify each record uniquely.   
+student_id and course_id are the primary key for student table and course table respectively.
+
+<img width="560" alt="image" src="https://user-images.githubusercontent.com/60777462/171616922-e74da4d3-1705-44b5-8582-2e251dd60c0d.png">
+
+## Foreign Keys
