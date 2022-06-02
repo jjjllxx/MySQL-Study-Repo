@@ -10,6 +10,14 @@ Data Modelling
 4. Build a Physical Model
 
 ## Conceptual Models
+Conceptual models: represents the entities and their relationships.  
+Visualization of entities and relationships: Entity Relationship(ER)/Unified Modelling Languages(UML).  
+Modelling tools:
+1. Microsoft Visio
+2. draw.io
+3. LucidCharts
+
+<img width="475" alt="image" src="https://user-images.githubusercontent.com/60777462/171609743-8afe3c0d-c969-4e9e-b5ae-8a71418e4d46.png">
 
 ## Build a Logical Models
 
