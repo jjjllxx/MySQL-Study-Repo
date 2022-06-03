@@ -59,7 +59,7 @@ Some On update/ On delete options for foreign key(when primary key of a table ch
 Normalization: review design, follow predefined rules and prevent data duplication.  
 
 ## First Normal Form (1NF)
-1NF: Each cell should has a single value and we cannot have repeated columns.  
+[First Normal Form (1NF)](https://en.wikipedia.org/wiki/First_normal_form): Each cell should has a single value and we cannot have repeated columns.  
 In the example, tags in courses table does not follow the 1NF, a new table tags should be added.  
 
 <img width="555" alt="image" src="https://user-images.githubusercontent.com/60777462/171666979-4fc05e7b-bb78-423e-9e39-ddaa8bf06fcd.png">
@@ -70,18 +70,25 @@ In relational databases, there is no many-to-many link, so use link table and tw
 <img width="692" alt="image" src="https://user-images.githubusercontent.com/60777462/171667205-7718a257-c970-40b0-98d6-5a69720e03e3.png">
 
 ## Second Normal Form (2NF)
-[Second normal form (2NF)](https://en.wikipedia.org/wiki/Second_normal_form) is a normal form used in database normalization.
-
-A relation is in the 'second normal form if it fulfills the following two requirements:
+[Second normal form (2NF)](https://en.wikipedia.org/wiki/Second_normal_form): Every **table** should describe **one entity**, and every column in that table should describe that entity. 
+A relation is in the second normal form if it fulfills the following two requirements:
 
 1. It is in first normal form.
 2. It does not have any non-prime attribute that is functionally dependent on any proper subset of any candidate key of the relation. A non-prime attribute of a relation is an attribute that is not a part of any candidate key of the relation.
 
 A relation is in 2NF if it is in 1NF and every non-prime attribute of the relation is dependent on the whole of every candidate key. Note that it does not put any restriction on the non-prime to non-prime attribute dependency. That is addressed in third normal form.
 
-To be simple: Every **table** should describe **one entity**, and every column in that table should describe that entity.  
 In the example, since one instructor may teach several courses, it is not an attribute of course.
 
 <img width="731" alt="image" src="https://user-images.githubusercontent.com/60777462/171787366-9c8b41b8-27fe-41f9-84c6-bf13f5daf645.png">
 
 ## Third Normal Form (3NF)
+[Third Normal Form (3NF)](https://en.wikipedia.org/wiki/Third_normal_form): A column in a table should not be derived from other columns.  
+For example, full_name column can be derived from the combination of first_name and last_name.  
+
+## Pragmatic Advice
+Start from logical or conceptual model, do not consider too much about normalization.   
+Do not jump into creating tables!  
+
+## Don't Model the Universe!
+
