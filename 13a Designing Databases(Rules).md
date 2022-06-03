@@ -1,4 +1,4 @@
-# Chapter 13 Designing Databases
+# Chapter 13a Designing Databases(Rules)
 
 ## Introduction
 
@@ -91,4 +91,22 @@ Start from logical or conceptual model, do not consider too much about normaliza
 Do not jump into creating tables!  
 
 ## Don't Model the Universe!
+1. Solve today's problems, not future problems that may never happen.
+2. Build a model for your problem domain, not the real world.  
+3. Simplicity is the ultimate sophistication.
 
+## Forward Engineering a Model
+Database -> Forward Engineer -> continue(or do some changes)
+Script shows in [create school database](https://github.com/JinLexuan/MySQL-study-repo/blob/main/My%20Code/13a_Forward_Engineer.sql)
+
+## Synchronizing a Model
+Database -> Synchronize Model -> continue(or do some changes)
+Script shows in [synchronize school database](https://github.com/JinLexuan/MySQL-study-repo/blob/main/My%20Code/13a_Synchronize_Model.sql)
+
+## Reverse Engineering
+Reverse Engineering: Create model and make changes for database without a model.   
+Close other models before Reverse Engineering.   
+Database -> Reverse Engineer -> Select the database   
+sql_store:
+
+<img width="568" alt="image" src="https://user-images.githubusercontent.com/60777462/171792074-200a05b1-ac52-43be-8399-e198d4cdbddd.png">
