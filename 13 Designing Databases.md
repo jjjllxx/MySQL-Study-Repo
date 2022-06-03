@@ -70,5 +70,18 @@ In relational databases, there is no many-to-many link, so use link table and tw
 <img width="692" alt="image" src="https://user-images.githubusercontent.com/60777462/171667205-7718a257-c970-40b0-98d6-5a69720e03e3.png">
 
 ## Second Normal Form (2NF)
+[Second normal form (2NF)](https://en.wikipedia.org/wiki/Second_normal_form) is a normal form used in database normalization.
 
+A relation is in the 'second normal form if it fulfills the following two requirements:
 
+1. It is in first normal form.
+2. It does not have any non-prime attribute that is functionally dependent on any proper subset of any candidate key of the relation. A non-prime attribute of a relation is an attribute that is not a part of any candidate key of the relation.
+
+A relation is in 2NF if it is in 1NF and every non-prime attribute of the relation is dependent on the whole of every candidate key. Note that it does not put any restriction on the non-prime to non-prime attribute dependency. That is addressed in third normal form.
+
+To be simple: Every **table** should describe **one entity**, and every column in that table should describe that entity.  
+In the example, since one instructor may teach several courses, it is not an attribute of course.
+
+<img width="731" alt="image" src="https://user-images.githubusercontent.com/60777462/171787366-9c8b41b8-27fe-41f9-84c6-bf13f5daf645.png">
+
+## Third Normal Form (3NF)
