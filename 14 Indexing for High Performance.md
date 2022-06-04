@@ -59,7 +59,7 @@ CREATE INDEX idx_lastname ON customers (last_name(20));
 To find the optimal length of index:
 ``` sql
 SELECT
-	COUNT(DISTINCT LEFT(last_name, 1)),
+    COUNT(DISTINCT LEFT(last_name, 1)),
     COUNT(DISTINCT LEFT(last_name, 5)),
     COUNT(DISTINCT LEFT(last_name, 10))
 FROM customers;
@@ -133,3 +133,44 @@ WHERE state = 'NY' AND last_name LIKE 'A%'
 ```
 
 ## When indexes are ignored
+``` sql
+EXPLAIN SELECT customer_id FROM customers
+WHERE state = 'CA' OR points > 1000;
+```
+
+Use UNION to improve performance
+``` sql
+CREATE INDEX idx_points ON customers (points);
+
+EXPLAIN
+	SELECT customer_id FROM customers
+    WHERE state = 'CA'
+    UNION
+    SELECT customer_id FROM customers
+    WHERE points > 1000;
+```
+
+MySQL cannot utilize index in the best possible way whenever use a column in expression:
+``` sql
+EXPLAIN SELECT customer_id FROM customers
+WHERE points + 10 > 2010;
+```
+Isolate columns
+
+## Using Indexes for Sorting
+SHOW STATUS to show server variables:
+``` sql
+SHOW STATUS LIKE 'last_query_cost';
+```
+last_query_cost: the cost of last query.  
+Design indexes for both filtering and sorting data.
+Consider order and direction(descending/ascending)
+
+## Covering Indexes
+Covering Index: An index that covers everything a query needs.
+
+## Index Maintanence
+Mind;
+1. Duplicate Index: Same set of columns in the same order.
+2. Redundance Index: Like (A, B) and (A)
+Before creating new indexes, check the existing ones.
