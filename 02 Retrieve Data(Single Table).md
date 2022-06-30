@@ -164,7 +164,7 @@ In the following example, the LIKE clause has the same result with the REGEXP cl
 ``` sql
 SELECT *
 FROM Customers
--- WHERE last_name LIKE '%field'
+-- WHERE last_name LIKE '%field%'
 WHERE last_name REGEXP 'field'
 ```
 
