@@ -22,3 +22,31 @@ Code in this repo includes the syntax and clause of MySQL along with exercises i
 10. [The ORDER BY Clause](https://github.com/JinLexuan/MySQL-study-repo/blob/main/02%20Retrieve%20Data(Single%20Table).md#the-order-by-clause)  
 11. [The LIMIT Clause](https://github.com/JinLexuan/MySQL-study-repo/blob/main/02%20Retrieve%20Data(Single%20Table).md#the-limit-clause)   
 
+## Chapter 3 Retrieve Data(Multiple Table)
+1. [Inner Joins](https://github.com/JinLexuan/MySQL-study-repo/blob/main/03%20Retrieve%20Data(Multiple%20Table).md)  
+2. [Join Across Databases](https://github.com/JinLexuan/MySQL-study-repo/blob/main/03%20Retrieve%20Data(Multiple%20Table).md#join-across-databases)  
+3. [Self Joins](https://github.com/JinLexuan/MySQL-study-repo/blob/main/03%20Retrieve%20Data(Multiple%20Table).md#self-joins)  
+4. [Join Multiple Tables](https://github.com/JinLexuan/MySQL-study-repo/blob/main/03%20Retrieve%20Data(Multiple%20Table).md#self-joins)  
+5. [Compound Join Conditions](https://github.com/JinLexuan/MySQL-study-repo/blob/main/03%20Retrieve%20Data(Multiple%20Table).md#compound-join-conditions)  
+6. [Implicit Join Syntax](https://github.com/JinLexuan/MySQL-study-repo/blob/main/03%20Retrieve%20Data(Multiple%20Table).md#implicit-join-syntax)  
+7. [Outer Joins](https://github.com/JinLexuan/MySQL-study-repo/blob/main/03%20Retrieve%20Data(Multiple%20Table).md#outer-joins)  
+8. [Outer Joins Between Multiple Tables](https://github.com/JinLexuan/MySQL-study-repo/blob/main/03%20Retrieve%20Data(Multiple%20Table).md#outer-joins-between-multiple-tables)  
+9. [Self Outer Joins](https://github.com/JinLexuan/MySQL-study-repo/blob/main/03%20Retrieve%20Data(Multiple%20Table).md#self-outer-joins)  
+10. [The USING Clause](https://github.com/JinLexuan/MySQL-study-repo/blob/main/03%20Retrieve%20Data(Multiple%20Table).md#the-using-clause)  
+11. [Natural Joins](https://github.com/JinLexuan/MySQL-study-repo/blob/main/03%20Retrieve%20Data(Multiple%20Table).md#natural-joins)  
+12. [Cross Joins](https://github.com/JinLexuan/MySQL-study-repo/blob/main/03%20Retrieve%20Data(Multiple%20Table).md#cross-joins)
+13. [Unions](https://github.com/JinLexuan/MySQL-study-repo/blob/main/03%20Retrieve%20Data(Multiple%20Table).md#unions)  
+
+## Chapter 4 Insert, Update & Delete
+1. [Column Attributes](https://github.com/JinLexuan/MySQL-study-repo/blob/main/04%20Insert%2C%20Update%20%26%20Delete.md#column-attributes)  
+2. [Inserting a Single Row](https://github.com/JinLexuan/MySQL-study-repo/blob/main/04%20Insert%2C%20Update%20%26%20Delete.md#inserting-a-single-row)  
+3. [Inserting Multiple Rows](https://github.com/JinLexuan/MySQL-study-repo/blob/main/04%20Insert%2C%20Update%20%26%20Delete.md#inserting-multiple-rows)  
+4. [Inserting Hierarchical Rows](https://github.com/JinLexuan/MySQL-study-repo/blob/main/04%20Insert%2C%20Update%20%26%20Delete.md#inserting-hierarchical-rows)  
+5. [Creating a Copy of a Table](https://github.com/JinLexuan/MySQL-study-repo/blob/main/04%20Insert%2C%20Update%20%26%20Delete.md#creating-a-copy-of-a-table)  
+6. [Updating a Single Row](https://github.com/JinLexuan/MySQL-study-repo/blob/main/04%20Insert%2C%20Update%20%26%20Delete.md#updating-a-single-row)  
+7. [Using Subqueries in Updates](https://github.com/JinLexuan/MySQL-study-repo/blob/main/04%20Insert%2C%20Update%20%26%20Delete.md#updating-a-single-row)  
+8. [Deleting Row](https://github.com/JinLexuan/MySQL-study-repo/blob/main/04%20Insert%2C%20Update%20%26%20Delete.md#deleting-row)  
+9. [Restoring the Databases](https://github.com/JinLexuan/MySQL-study-repo/blob/main/04%20Insert%2C%20Update%20%26%20Delete.md#restoring-the-databases)  
+
+## Chapter 5 Summarize data
+1. [Aggregate Functions](https://github.com/JinLexuan/MySQL-study-repo/blob/main/05%20Summarise%20Data.md#aggregate-functions)  
