@@ -49,4 +49,18 @@ Code in this repo includes the syntax and clause of MySQL along with exercises i
 9. [Restoring the Databases](https://github.com/JinLexuan/MySQL-study-repo/blob/main/04%20Insert%2C%20Update%20%26%20Delete.md#restoring-the-databases)  
 
 ## Chapter 5 Summarize data
-1. [Aggregate Functions](https://github.com/JinLexuan/MySQL-study-repo/blob/main/05%20Summarise%20Data.md#aggregate-functions)  
+1. [Aggregate Functions](https://github.com/JinLexuan/MySQL-study-repo/blob/main/05%20Summarise%20Data.md#aggregate-functions)   
+2. [The GROUP BY Clause](https://github.com/JinLexuan/MySQL-study-repo/blob/main/05%20Summarise%20Data.md#the-group-by-clause)   
+3. [The HAVING Clause](https://github.com/JinLexuan/MySQL-study-repo/blob/main/05%20Summarise%20Data.md#the-having-clause)  
+4. [The ROLLUP Operator](https://github.com/JinLexuan/MySQL-study-repo/blob/main/05%20Summarise%20Data.md#the-rollup-operator)   
+
+## Chapter 06 Complex Queries
+1. [Subqueries](https://github.com/JinLexuan/MySQL-study-repo/blob/main/06%20Complex%20Queries.md#subqueries)  
+2. [The IN Operator](https://github.com/JinLexuan/MySQL-study-repo/blob/main/06%20Complex%20Queries.md#the-in-operator)  
+3. [Subqueries vs Joins](https://github.com/JinLexuan/MySQL-study-repo/blob/main/06%20Complex%20Queries.md#subqueries-vs-joins)  
+4. [The ALL Keyword](https://github.com/JinLexuan/MySQL-study-repo/blob/main/06%20Complex%20Queries.md#the-all-keyword)  
+5. [The ANY Keyword](https://github.com/JinLexuan/MySQL-study-repo/blob/main/06%20Complex%20Queries.md#the-any-keyword)  
+6. [Correlated Subqueries](https://github.com/JinLexuan/MySQL-study-repo/blob/main/06%20Complex%20Queries.md#correlated-subqueries)  
+7. [The EXISTS Operation](https://github.com/JinLexuan/MySQL-study-repo/blob/main/06%20Complex%20Queries.md#the-exists-operation)  
+8. [Subqueries in the SELECT Clause](https://github.com/JinLexuan/MySQL-study-repo/blob/main/06%20Complex%20Queries.md#subqueries-in-the-select-clause)  
+9. [Subqueries in the FROM Clause](https://github.com/JinLexuan/MySQL-study-repo/blob/main/06%20Complex%20Queries.md#subqueries-in-the-from-clause)  
