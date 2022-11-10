@@ -101,3 +101,27 @@ Code in this repo includes the syntax and clause of MySQL along with exercises i
 4. [Using Triggers for Auditing](https://github.com/JinLexuan/MySQL-study-repo/blob/main/10%20Triggers.md#using-triggers-for-auditing)   
 5. [Viewing and Dropping Events](https://github.com/JinLexuan/MySQL-study-repo/blob/main/10%20Triggers.md#viewing-and-dropping-events)   
 
+## Chapter 11 Transcations
+1. [Transcations](https://github.com/JinLexuan/MySQL-study-repo/blob/main/11%20Transcations.md#transcations)  
+2. [Creating Transactions](https://github.com/JinLexuan/MySQL-study-repo/blob/main/11%20Transcations.md#creating-transactions)  
+3. [Concurrency and Locking](https://github.com/JinLexuan/MySQL-study-repo/blob/main/11%20Transcations.md#concurrency-and-locking)  
+4. [Concurrency Problems](https://github.com/JinLexuan/MySQL-study-repo/blob/main/11%20Transcations.md#concurrency-problems)  
+5. [Transaction Isolation Levels](https://github.com/JinLexuan/MySQL-study-repo/blob/main/11%20Transcations.md#transaction-isolation-levels)  
+6. [READ UNCOMMITTED Isolation Level](https://github.com/JinLexuan/MySQL-study-repo/blob/main/11%20Transcations.md#read-uncommitted-isolation-level)  
+7. [READ COMMITTED Isolation Level](https://github.com/JinLexuan/MySQL-study-repo/blob/main/11%20Transcations.md#read-committed-isolation-level)  
+8. [REPEATABLE READ Isolation Level](https://github.com/JinLexuan/MySQL-study-repo/blob/main/11%20Transcations.md#repeatable-read-isolation-level)  
+9. [SERIALIZABLE Isolation Level](https://github.com/JinLexuan/MySQL-study-repo/blob/main/11%20Transcations.md#serializable-isolation-level)  
+10. [Deadlocks](https://github.com/JinLexuan/MySQL-study-repo/blob/main/11%20Transcations.md#deadlocks)  
+
+## Chapter 12 Data Type
+1. [Introduction](https://github.com/JinLexuan/MySQL-study-repo/blob/main/12%20Data%20Types.md#introduction)  
+2. [String Types](https://github.com/JinLexuan/MySQL-study-repo/blob/main/12%20Data%20Types.md#string-types)  
+3. [Integer Types](https://github.com/JinLexuan/MySQL-study-repo/blob/main/12%20Data%20Types.md#integer-types)  
+4. [Fixed-point and Floating-point Types](https://github.com/JinLexuan/MySQL-study-repo/blob/main/12%20Data%20Types.md#fixed-point-and-floating-point-types)  
+5. [Boolean Types](https://github.com/JinLexuan/MySQL-study-repo/blob/main/12%20Data%20Types.md#fixed-point-and-floating-point-types)  
+6. [Enum and Set Types](https://github.com/JinLexuan/MySQL-study-repo/blob/main/12%20Data%20Types.md#enum-and-set-types)  
+7. [Date and Time Types](https://github.com/JinLexuan/MySQL-study-repo/blob/main/12%20Data%20Types.md#date-and-time-types)  
+8. [Blob Types](https://github.com/JinLexuan/MySQL-study-repo/blob/main/12%20Data%20Types.md#blob-types)  
+9. [JSON Types](https://github.com/JinLexuan/MySQL-study-repo/blob/main/12%20Data%20Types.md#json-types)  
+
+
