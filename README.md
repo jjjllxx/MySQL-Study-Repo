@@ -155,4 +155,25 @@ Code in this repo includes the syntax and clause of MySQL along with exercises i
 8. [Character Sets and Collations](https://github.com/JinLexuan/MySQL-study-repo/blob/main/13b%20Designing%20Databases(Projects).md#character-sets-and-collations)   
 9. [Storage Engines](https://github.com/JinLexuan/MySQL-study-repo/blob/main/13b%20Designing%20Databases(Projects).md#storage-engines)  
 
-## 
+## Chapter 14 Indexing for High Performance
+1. [Introduection](https://github.com/JinLexuan/MySQL-study-repo/blob/main/14%20Indexing%20for%20High%20Performance.md#introduection)  
+2. [Indexes](https://github.com/JinLexuan/MySQL-study-repo/blob/main/14%20Indexing%20for%20High%20Performance.md#indexes)  
+3. [Creating Indexes](https://github.com/JinLexuan/MySQL-study-repo/blob/main/14%20Indexing%20for%20High%20Performance.md#creating-indexes)  
+4. [Viewing Indexes](https://github.com/JinLexuan/MySQL-study-repo/blob/main/14%20Indexing%20for%20High%20Performance.md#viewing-indexes)  
+5. [Prefix Indexes](https://github.com/JinLexuan/MySQL-study-repo/blob/main/14%20Indexing%20for%20High%20Performance.md#prefix-indexes)  
+6. [Full-text Indexes](https://github.com/JinLexuan/MySQL-study-repo/blob/main/14%20Indexing%20for%20High%20Performance.md#full-text-indexes)  
+7. [Composite Indexes](https://github.com/JinLexuan/MySQL-study-repo/blob/main/14%20Indexing%20for%20High%20Performance.md#composite-indexes)  
+8. [Order of Columns in Composite Indexes](https://github.com/JinLexuan/MySQL-study-repo/blob/main/14%20Indexing%20for%20High%20Performance.md#order-of-columns-in-composite-indexes)  
+9. [When indexes are ignored](https://github.com/JinLexuan/MySQL-study-repo/blob/main/14%20Indexing%20for%20High%20Performance.md#when-indexes-are-ignored)  
+10. [Using Indexes for Sorting](https://github.com/JinLexuan/MySQL-study-repo/blob/main/14%20Indexing%20for%20High%20Performance.md#using-indexes-for-sorting)  
+11. [Covering Indexes](https://github.com/JinLexuan/MySQL-study-repo/blob/main/14%20Indexing%20for%20High%20Performance.md#covering-indexes)  
+12. [Index Maintanence](https://github.com/JinLexuan/MySQL-study-repo/blob/main/14%20Indexing%20for%20High%20Performance.md#index-maintanence)  
+
+## Chapter 15 Securing Databases
+1. [Creating a User](https://github.com/JinLexuan/MySQL-study-repo/blob/main/15%20Securing%20Databases.md#creating-a-user)  
+2. [View Users](https://github.com/JinLexuan/MySQL-study-repo/blob/main/15%20Securing%20Databases.md#view-users)   
+3. [Dropping Users](https://github.com/JinLexuan/MySQL-study-repo/blob/main/15%20Securing%20Databases.md#dropping-users)   
+4. [Changing Passwords](https://github.com/JinLexuan/MySQL-study-repo/blob/main/15%20Securing%20Databases.md#changing-passwords)  
+5. [Granting Privileges](https://github.com/JinLexuan/MySQL-study-repo/blob/main/15%20Securing%20Databases.md#granting-privileges)  
+6. [Viewing Privileges](https://github.com/JinLexuan/MySQL-study-repo/blob/main/15%20Securing%20Databases.md#viewing-privileges)  
+7. [Dropping Privileges](https://github.com/JinLexuan/MySQL-study-repo/blob/main/15%20Securing%20Databases.md#dropping-privileges)  
