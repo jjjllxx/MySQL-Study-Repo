@@ -82,3 +82,22 @@ Code in this repo includes the syntax and clause of MySQL along with exercises i
 4. [The WITH OPTION CHECK Clause](https://github.com/JinLexuan/MySQL-study-repo/blob/main/08%20Views.md#the-with-option-check-clause)  
 5. [Other Benefits of Views](https://github.com/JinLexuan/MySQL-study-repo/blob/main/08%20Views.md#other-benefits-of-views)  
 
+## Chapter 09 Stored Procedures & Functions
+1. [Stored Procedures](https://github.com/JinLexuan/MySQL-study-repo/blob/main/09%20Stored%20Procedures%20%26%20Functions.md#stored-procedures)  
+2. [Creating a Stored Procedure](https://github.com/JinLexuan/MySQL-study-repo/blob/main/09%20Stored%20Procedures%20%26%20Functions.md#creating-a-stored-procedure)  
+3. [Creating Procedures Using MySQLWorkbench](https://github.com/JinLexuan/MySQL-study-repo/blob/main/09%20Stored%20Procedures%20%26%20Functions.md#creating-a-stored-procedure)  
+4. [Dropping Procedures](https://github.com/JinLexuan/MySQL-study-repo/blob/main/09%20Stored%20Procedures%20%26%20Functions.md#dropping-procedures)  
+5. [Parameters with Default Values](https://github.com/JinLexuan/MySQL-study-repo/blob/main/09%20Stored%20Procedures%20%26%20Functions.md#parameters-with-default-values)  
+6. [Parameter Validation](https://github.com/JinLexuan/MySQL-study-repo/blob/main/09%20Stored%20Procedures%20%26%20Functions.md#parameter-validation)  
+7. [Output Parameters](https://github.com/JinLexuan/MySQL-study-repo/blob/main/09%20Stored%20Procedures%20%26%20Functions.md#output-parameters)  
+8. [Variables](https://github.com/JinLexuan/MySQL-study-repo/blob/main/09%20Stored%20Procedures%20%26%20Functions.md#variables)  
+9. [Functions](https://github.com/JinLexuan/MySQL-study-repo/blob/main/09%20Stored%20Procedures%20%26%20Functions.md#functions)  
+10. [Other Conventions](https://github.com/JinLexuan/MySQL-study-repo/blob/main/09%20Stored%20Procedures%20%26%20Functions.md#other-conventions)  
+
+## Chapter 10 Triggers
+1. [Triggers](https://github.com/JinLexuan/MySQL-study-repo/blob/main/10%20Triggers.md#triggers)  
+2. [Viewing Triggers](https://github.com/JinLexuan/MySQL-study-repo/blob/main/10%20Triggers.md#viewing-triggers)  
+3. [Dropping Triggers](https://github.com/JinLexuan/MySQL-study-repo/blob/main/10%20Triggers.md#dropping-triggers)  
+4. [Using Triggers for Auditing](https://github.com/JinLexuan/MySQL-study-repo/blob/main/10%20Triggers.md#using-triggers-for-auditing)   
+5. [Viewing and Dropping Events](https://github.com/JinLexuan/MySQL-study-repo/blob/main/10%20Triggers.md#viewing-and-dropping-events)   
+
