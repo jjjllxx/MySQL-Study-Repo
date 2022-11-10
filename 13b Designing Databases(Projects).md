@@ -1,6 +1,6 @@
 # Chapter 13b Designing Databases(Projects)
 
-## Project: Flight Booking Syste
+## Project: Flight Booking System
 [ch.13-PROJECT Flight Booking System](https://github.com/JinLexuan/MySQL-study-repo/blob/main/SQL%20Course%20Materials/ch.13-PROJECT%20Flight%20Booking%20System.pdf)
 
 ### Solutions: Conceptual Model
