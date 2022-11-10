@@ -64,3 +64,21 @@ Code in this repo includes the syntax and clause of MySQL along with exercises i
 7. [The EXISTS Operation](https://github.com/JinLexuan/MySQL-study-repo/blob/main/06%20Complex%20Queries.md#the-exists-operation)  
 8. [Subqueries in the SELECT Clause](https://github.com/JinLexuan/MySQL-study-repo/blob/main/06%20Complex%20Queries.md#subqueries-in-the-select-clause)  
 9. [Subqueries in the FROM Clause](https://github.com/JinLexuan/MySQL-study-repo/blob/main/06%20Complex%20Queries.md#subqueries-in-the-from-clause)  
+
+## Chapter 07 Built-in Functions
+1. [Numeric Functions](https://github.com/JinLexuan/MySQL-study-repo/blob/main/07%20Built-in%20Functions.md#numeric-functions)  
+2. [String Functions](https://github.com/JinLexuan/MySQL-study-repo/blob/main/07%20Built-in%20Functions.md#string-functions)  
+3. [Date Functions](https://github.com/JinLexuan/MySQL-study-repo/blob/main/07%20Built-in%20Functions.md#date-functions)  
+4. [Formatting Dates and Times](https://github.com/JinLexuan/MySQL-study-repo/blob/main/07%20Built-in%20Functions.md#formatting-dates-and-times)  
+5. [Calculating Dates and Times](https://github.com/JinLexuan/MySQL-study-repo/blob/main/07%20Built-in%20Functions.md#calculating-dates-and-times)  
+6. [The IFNULL and COALESCE Functions](https://github.com/JinLexuan/MySQL-study-repo/blob/main/07%20Built-in%20Functions.md#the-ifnull-and-coalesce-functions)  
+7. [The IF Function](https://github.com/JinLexuan/MySQL-study-repo/blob/main/07%20Built-in%20Functions.md#the-if-function)  
+8. [The CASE operator](https://github.com/JinLexuan/MySQL-study-repo/blob/main/07%20Built-in%20Functions.md#the-case-operator)  
+
+## Chapter 08 Views
+1. [Creating Views](https://github.com/JinLexuan/MySQL-study-repo/blob/main/08%20Views.md#creating-views)  
+2. [Altering or Dropping Views](https://github.com/JinLexuan/MySQL-study-repo/blob/main/08%20Views.md#altering-or-dropping-views)  
+3. [Updatable Views](https://github.com/JinLexuan/MySQL-study-repo/blob/main/08%20Views.md#updatable-views)  
+4. [The WITH OPTION CHECK Clause](https://github.com/JinLexuan/MySQL-study-repo/blob/main/08%20Views.md#the-with-option-check-clause)  
+5. [Other Benefits of Views](https://github.com/JinLexuan/MySQL-study-repo/blob/main/08%20Views.md#other-benefits-of-views)  
+
