@@ -1,9 +1,11 @@
 # MySQL-study-repo
 This is my MySQL study repo. I learned it from 'codewithmosh' course.   
-Code in this repo includes the syntax and clause of MySQL along with exercises in the course.
+Code in this repo includes the syntax and clause of MySQL along with exercises in the course.  
+To find exercises about MySQL, you can refer to [Leetcode-database-question-MySQL](https://github.com/JinLexuan/Leetcode-database-question-MySQL.git).  
 
 这是我的MySQL学习仓库。我从’codewithmosh‘这门课学习。  
-这个仓库里包括MySQL的语法与从句，连同课程中的练习。
+这个仓库里包括MySQL的语法与从句，连同课程中的练习。  
+力扣MySQL练习题： [Leetcode-database-question-MySQL](https://github.com/JinLexuan/Leetcode-database-question-MySQL.git).  
 
 # Content
 ## Chapter 1 Introduction
