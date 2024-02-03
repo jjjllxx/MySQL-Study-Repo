@@ -2,7 +2,7 @@
 
 ## Introduection
 Indexes speed up our queries.   
-Use [load_1000_customers](https://github.com/JinLexuan/MySQL-study-repo/blob/main/SQL%20Course%20Materials/load_1000_customers.sql) to load 1000 customers' information.
+Use [load_1000_customers](https://github.com/jjjllxx/MySQL-study-repo/blob/main/SQL%20Course%20Materials/load_1000_customers.sql) to load 1000 customers' information.
 
 ## Indexes
 Indexes: basically a kind of data structure that databases use to quicklty find data.  
@@ -66,7 +66,7 @@ FROM customers;
 ```
 
 ## Full-text Indexes
-Use [create-db-blog](https://github.com/JinLexuan/MySQL-study-repo/blob/main/SQL%20Course%20Materials/create-db-blog.sql) to create sql_blog.  
+Use [create-db-blog](https://github.com/jjjllxx/MySQL-study-repo/blob/main/SQL%20Course%20Materials/create-db-blog.sql) to create sql_blog.  
 Traditional Method
 ``` sql
 USE sql_blog;

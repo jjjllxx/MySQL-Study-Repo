@@ -1,7 +1,7 @@
 # Chapter 13b Designing Databases(Projects)
 
 ## Project: Flight Booking System
-[ch.13-PROJECT Flight Booking System](https://github.com/JinLexuan/MySQL-study-repo/blob/main/SQL%20Course%20Materials/ch.13-PROJECT%20Flight%20Booking%20System.pdf)
+[ch.13-PROJECT Flight Booking System](https://github.com/jjjllxx/MySQL-study-repo/blob/main/SQL%20Course%20Materials/ch.13-PROJECT%20Flight%20Booking%20System.pdf)
 
 ### Solutions: Conceptual Model
 <img width="633" alt="image" src="https://user-images.githubusercontent.com/60777462/171800340-18746b1a-a3b2-4f25-a4c9-397eb46e9c50.png">
@@ -10,7 +10,7 @@
 <img width="653" alt="image" src="https://user-images.githubusercontent.com/60777462/171806189-b246c65c-7fc7-4b2e-9753-c61f1c8584cf.png">
 
 ## Project: Radio Rental Application
-[ch13-PROJECT Video Rental Application](https://github.com/JinLexuan/MySQL-study-repo/blob/main/SQL%20Course%20Materials/ch13-PROJECT%20Video%20Rental%20Application.pdf)
+[ch13-PROJECT Video Rental Application](https://github.com/jjjllxx/MySQL-study-repo/blob/main/SQL%20Course%20Materials/ch13-PROJECT%20Video%20Rental%20Application.pdf)
 
 ### Solutions: Conceptual Model
 <img width="468" alt="image" src="https://user-images.githubusercontent.com/60777462/171811074-45234823-b709-45a8-9798-95869a811cfa.png">

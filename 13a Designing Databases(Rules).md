@@ -97,11 +97,11 @@ Do not jump into creating tables!
 
 ## Forward Engineering a Model
 Database -> Forward Engineer -> continue(or do some changes)
-Script shows in [create school database](https://github.com/JinLexuan/MySQL-study-repo/blob/main/My%20Code/13a_Forward_Engineer.sql)
+Script shows in [create school database](https://github.com/jjjllxx/MySQL-study-repo/blob/main/My%20Code/13a_Forward_Engineer.sql)
 
 ## Synchronizing a Model
 Database -> Synchronize Model -> continue(or do some changes)
-Script shows in [synchronize school database](https://github.com/JinLexuan/MySQL-study-repo/blob/main/My%20Code/13a_Synchronize_Model.sql)
+Script shows in [synchronize school database](https://github.com/jjjllxx/MySQL-study-repo/blob/main/My%20Code/13a_Synchronize_Model.sql)
 
 ## Reverse Engineering
 Reverse Engineering: Create model and make changes for database without a model.   
